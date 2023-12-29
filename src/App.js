@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import FinalView from "./components/FinalView";
+import Header from "./components/Header";
+import Inputs from "./components/Inputs";
+import View from "./components/View";
+import { TextContextProvider } from "./context/TextContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TextContextProvider>
+      <div className="min-h-screen font-[Poppins] bg-gray-200">      
+          <Header />
+          <main className="min-h-[37rem] flex flex-col md:flex-row"> 
+            <div className="flex flex-col basis-[50%]">         
+              <Inputs />                
+              <View />
+            </div>  
+            <FinalView />       
+          </main>      
+      </div>
+    </TextContextProvider>
   );
 }
 
